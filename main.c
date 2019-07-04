@@ -3,13 +3,14 @@
 #include "get_next_line.h"
 #include <fcntl.h>
 
-int main(void)
+int main(int c, char **av)
 {
 	int	fd;
 	int ret;
 	char	*line;
+	ret = c;
 
-	fd = open("fileshort.txt", O_RDONLY, 0);
+	fd = open(av[1], O_RDONLY, 0);
 	if (fd == -1)
 	{
 		printf("error opening file");

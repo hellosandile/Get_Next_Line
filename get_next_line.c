@@ -6,7 +6,7 @@
 /*   By: samkhize <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 14:06:22 by samkhize          #+#    #+#             */
-/*   Updated: 2019/07/04 14:15:26 by samkhize         ###   ########.fr       */
+/*   Updated: 2019/07/04 14:39:06 by samkhize         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ char	*ft_readline(char *start,char **line)
 int	get_next_line(const int fd, char **line)
 {
 	static char *raed;
-	char *temp;
+//	char *temp;
 	char buf[BUFF_SIZE + 1];
 	int retu;
 
