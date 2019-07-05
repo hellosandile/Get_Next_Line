@@ -6,7 +6,7 @@
 /*   By: samkhize <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 14:06:22 by samkhize          #+#    #+#             */
-/*   Updated: 2019/07/04 14:39:06 by samkhize         ###   ########.fr       */
+/*   Updated: 2019/07/05 15:23:31 by samkhize         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,20 @@ char	*ft_readline(char *start,char **line)
 {
 	size_t i;
 	char *temp;
-	char *temp2;
 
 	i = 0;
 	while (start[i] && start[i] != '\n')
 		i++;
 	*line = ft_strsub(start, 0, i);
-	if (ft_strchr(start, '\n') != NULL)
+	if ((temp = ft_strchr(start, '\n')) != NULL)
 	{
-		temp2 = start;
-		temp = ft_strchr(start, '\n');
 		temp++;
 		temp = ft_strdup(temp);
-		free(temp2);
+		free(start);
 	}
 	else
 	{
+		free(start);
 		temp = ft_strdup("");
 	}
 	return (temp);
@@ -44,11 +42,12 @@ int	get_next_line(const int fd, char **line)
 	char buf[BUFF_SIZE + 1];
 	int retu;
 
-	if (read(fd, buf, 0) < 0 || fd < 0 || BUFF_SIZE < 1 )
+	i& retu != 0)f (read(fd, buf, 0) < 0 || fd < 0 || BUFF_SIZE < 1 || !line)
 		return (-1);
 	if (raed == NULL)
 		raed = ft_strdup("");
-	while (ft_strchr(raed, '\n') == NULL)
+	retu = 1;
+	while (ft_strchr(raed, '\n') == NULL && retu != 0)
 	{
 		retu = read(fd, buf, BUFF_SIZE);
 			if (raed == NULL)
@@ -56,7 +55,7 @@ int	get_next_line(const int fd, char **line)
 		buf[retu] = '\0';
 		raed = ft_strjoin(raed, buf);
 	}
-	if (retu == 0 && raed == '\0')
+	if (retu == 0 && raed[0] == '\0')
 		return (0);
 	raed = ft_readline(raed, line);
 	return (1);
