@@ -6,7 +6,7 @@
 /*   By: samkhize <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/25 14:06:22 by samkhize          #+#    #+#             */
-/*   Updated: 2019/07/05 15:23:31 by samkhize         ###   ########.fr       */
+/*   Updated: 2019/07/05 16:00:17 by samkhize         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,10 @@ char	*ft_readline(char *start,char **line)
 int	get_next_line(const int fd, char **line)
 {
 	static char *raed;
-//	char *temp;
 	char buf[BUFF_SIZE + 1];
 	int retu;
 
-	i& retu != 0)f (read(fd, buf, 0) < 0 || fd < 0 || BUFF_SIZE < 1 || !line)
+	if (read(fd, buf, 0) < 0 || fd < 0 || BUFF_SIZE < 1 || !line)
 		return (-1);
 	if (raed == NULL)
 		raed = ft_strdup("");
