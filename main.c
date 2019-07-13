@@ -1,21 +1,33 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: samkhize <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/07/13 05:10:19 by samkhize          #+#    #+#             */
+/*   Updated: 2019/07/13 05:15:34 by samkhize         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include "get_next_line.h"
 #include <fcntl.h>
 
-int main(int c, char **av)
+int	main(int c, char **av)
 {
-	int	fd;
-	int ret;
+	int		fd;
+	int		ret;
 	char	*line;
-	int res;
-	ret = c;
+	int		res;
 
+	ret = c;
 	fd = open(av[1], O_RDONLY, 0);
 	if (fd == -1)
 	{
 		printf("error opening file");
-			return (0);
+		return (0);
 	}
 	while ((res = get_next_line(fd, &line)) > 0)
 		printf("%s\n", line);
